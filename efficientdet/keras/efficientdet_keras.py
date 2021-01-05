@@ -405,8 +405,8 @@ class ClassNet(tf.keras.layers.Layer):
           tf.keras.layers.SeparableConv2D,
           depth_multiplier=1,
           data_format=data_format,
-          pointwise_initializer=tf.initializers.variance_scaling(),
-          depthwise_initializer=tf.initializers.variance_scaling())
+          pointwise_initializer=tf.initializers.VarianceScaling(),
+          depthwise_initializer=tf.initializers.VarianceScaling())
     else:
       conv2d_layer = functools.partial(
           tf.keras.layers.Conv2D,
