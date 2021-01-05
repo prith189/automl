@@ -433,7 +433,7 @@ class InputReader:
       return dataset
 
     dataset = dataset.interleave(
-        _prefetch_dataset, num_parallel_calls=tf.data.AUTOTUNE)
+        _prefetch_dataset, num_parallel_calls=tf.data.experimental.AUTOTUNE)
     dataset = dataset.with_options(self.dataset_options)
     if self._is_training:
       dataset = dataset.shuffle(64, seed=seed)
