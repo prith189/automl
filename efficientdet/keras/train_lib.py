@@ -776,7 +776,7 @@ class EfficientDetNetTrain(efficientdet_keras.EfficientDetNet):
       loss_vals['reg_l2_loss'] = reg_l2_loss
       total_loss += tf.cast(reg_l2_loss, loss_dtype)
       if isinstance(self.optimizer,
-                    tf.keras.mixed_precision.LossScaleOptimizer):
+                    tf.keras.mixed_precision.experimental.LossScaleOptimizer):
         scaled_loss = self.optimizer.get_scaled_loss(total_loss)
         optimizer = self.optimizer.inner_optimizer
       else:
