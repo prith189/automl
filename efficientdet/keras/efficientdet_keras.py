@@ -542,8 +542,8 @@ class BoxNet(tf.keras.layers.Layer):
             tf.keras.layers.SeparableConv2D(
                 filters=self.num_filters,
                 depth_multiplier=1,
-                pointwise_initializer=tf.initializers.variance_scaling(),
-                depthwise_initializer=tf.initializers.variance_scaling(),
+                pointwise_initializer=tf.initializers.VarianceScaling(),
+                depthwise_initializer=tf.initializers.VarianceScaling(),
                 data_format=self.data_format,
                 kernel_size=3,
                 activation=None,
@@ -577,8 +577,8 @@ class BoxNet(tf.keras.layers.Layer):
       self.boxes = tf.keras.layers.SeparableConv2D(
           filters=4 * self.num_anchors,
           depth_multiplier=1,
-          pointwise_initializer=tf.initializers.variance_scaling(),
-          depthwise_initializer=tf.initializers.variance_scaling(),
+          pointwise_initializer=tf.initializers.VarianceScaling(),
+          depthwise_initializer=tf.initializers.VarianceScaling(),
           data_format=self.data_format,
           kernel_size=3,
           activation=None,
