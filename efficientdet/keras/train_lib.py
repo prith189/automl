@@ -787,7 +787,7 @@ class EfficientDetNetTrain(efficientdet_keras.EfficientDetNet):
     trainable_vars = self._freeze_vars()
     scaled_gradients = tape.gradient(scaled_loss, trainable_vars)
     if isinstance(self.optimizer,
-                  tf.keras.mixed_precision.LossScaleOptimizer):
+                  tf.keras.mixed_precision.experimental.LossScaleOptimizer):
       gradients = self.optimizer.get_unscaled_gradients(scaled_gradients)
     else:
       gradients = scaled_gradients
